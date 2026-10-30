@@ -1,0 +1,14 @@
+.venv/
+.tmp/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+build/
+dist/
+release/
+*.spec
+*.zip
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -9,9 +9,13 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ccyfjkdjhf-wq/integral-solver/releases/latest/download/IntegralSolver-Windows.zip">
-    <img src="https://img.shields.io/badge/⬇_下载_Windows_版-ZIP-0E7490?style=for-the-badge&logo=windows&logoColor=white" alt="下载 Windows 版 ZIP">
+  <a href="https://github.com/ccyfjkdjhf-wq/integral-solver/releases/latest/download/IntegralSolver-Standalone.exe">
+    <img src="https://img.shields.io/badge/⬇_下载_Windows_免安装版-0E7490?style=for-the-badge&logo=windows&logoColor=white" alt="下载 Windows 免安装版">
   </a>
+</p>
+
+<p align="center">
+  <strong>免安装版不需要安装 Python，下载后双击即可使用。</strong>
 </p>
 
 ![界面预览](docs/screenshot.png)
@@ -28,24 +32,29 @@
 - 结果可复制为完整的纯文本报告；命令行支持 JSON 输出，便于二次开发。
 - 全中文界面，Windows 下双击即可启动。
 
-## 下载与运行（Windows）
+## 下载与运行
 
-1. 点击上方的 **“下载 Windows 版 ZIP”**，或前往 [Releases](https://github.com/ccyfjkdjhf-wq/integral-solver/releases/latest) 下载 `IntegralSolver-Windows.zip`。
-2. 解压 ZIP，把得到的文件夹放到桌面或任意目录。
+| 版本 | 是否需要 Python | 适用场景 | 下载 |
+| --- | --- | --- | --- |
+| **免安装版（推荐）** | 不需要 | 下载后双击直接使用 | [IntegralSolver-Standalone.exe](https://github.com/ccyfjkdjhf-wq/integral-solver/releases/latest/download/IntegralSolver-Standalone.exe) |
+| **源码版** | 需要 Python 3.10+ | 查看/修改源码、使用命令行 | [IntegralSolver-Windows.zip](https://github.com/ccyfjkdjhf-wq/integral-solver/releases/latest/download/IntegralSolver-Windows.zip) |
+
+### 免安装版（无需 Python）
+
+1. 点击下载 `IntegralSolver-Standalone.exe`（约 28 MB）。
+2. 双击运行，无需安装 Python、SymPy 或其他依赖。
+3. 支持 Windows 10/11 64 位。
+
+> 该程序未做代码签名，Windows 可能显示“Windows 已保护你的电脑”或“未知发布者”。点击 **“更多信息” → “仍要运行”** 即可。这是未签名程序的正常提示，不代表文件有问题。
+
+### 源码版（需要 Python）
+
+1. 下载 `IntegralSolver-Windows.zip` 并解压。
+2. 把得到的文件夹放到桌面或任意目录。
 3. 双击文件夹里的 **`启动积分求解器.bat`**。
 4. 首次运行会自动创建 `.venv` 并安装 SymPy，需要联网；之后可离线使用。
 
 如果启动器提示找不到 Python，请安装 [Python 3.10+](https://www.python.org/downloads/)，安装时勾选 **Add Python to PATH**。
-
-> 下载位置由浏览器决定（通常为“下载”文件夹）。解压后把文件夹拖到桌面，即可从桌面启动。
-
-### 手动启动
-
-```bat
-python -m venv .venv
-.venv\Scripts\python.exe -m pip install -r requirements.txt
-.venv\Scripts\python.exe main.py
-```
 
 也可以直接克隆源码：
 
@@ -54,7 +63,17 @@ git clone https://github.com/ccyfjkdjhf-wq/integral-solver.git
 cd integral-solver
 ```
 
+### 手动启动源码版
+
+```bat
+python -m venv .venv
+.venv\Scripts\python.exe -m pip install -r requirements.txt
+.venv\Scripts\python.exe main.py
+```
+
 ## 命令行用法
+
+命令行功能包含在源码版中；免安装版双击后直接打开图形界面。
 
 双击 **`命令行模式.bat`** 会打开交互式命令行。也可以直接使用：
 
@@ -160,4 +179,5 @@ integral-solver/
 - Python 3.10+
 - [SymPy](https://www.sympy.org/) 符号计算
 - Tkinter 桌面界面
+- PyInstaller 免安装打包
 - `unittest` 自动化测试
